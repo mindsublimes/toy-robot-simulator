@@ -1,0 +1,7 @@
+<% if @axis.present? %>
+  id = "location_<%= @axis.join('_') %>"
+  document.getElementById('fa_user').remove();
+  document.getElementById(id).innerHTML = "<i id='fa_user' class='fa fa-user fa-2x' data-set='" + <%= @data_set %> + "'></i>"
+<% else %>
+  alert("Please move within table");
+<% end %>

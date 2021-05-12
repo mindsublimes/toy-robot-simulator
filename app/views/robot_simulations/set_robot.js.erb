@@ -1,0 +1,25 @@
+<% if !@axis %>
+  alert('Please enter right directions. 0 to 5 as given below')
+<% end %>
+
+<% data_set = if @robot.orientation == "North"
+              "0"
+              elsif @robot.orientation == "East"
+                "90"
+              elsif @robot.orientation == "South"
+                "180"
+              elsif @robot.orientation == "West"
+                "270"
+              else
+                "0"
+              end
+%>
+var div_id = "location_<%= @directions.map(&:to_i).join('_') %>"
+if (document.getElementById('fa_user')){
+  document.getElementById('fa_user').remove();
+}
+document.getElementById(div_id).innerHTML = "<i id='fa_user' class='fa fa-user fa-2x' data-set='" + <%= data_set %> + "'></i>"
+document.getElementById("left").disabled = false;
+document.getElementById("right").disabled = false;
+document.getElementById("move").disabled = false;
+document.getElementById("info").disabled = false;

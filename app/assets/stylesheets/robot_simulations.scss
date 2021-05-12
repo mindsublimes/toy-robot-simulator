@@ -1,0 +1,34 @@
+.table-width {
+    width: 600px;
+    height: 400px;
+    background: black;
+  }
+  .border-5{
+    border: 7px solid red;
+  }
+  .th-width{
+    height: 40px;
+    width: 40px;
+    border: 2px solid white;
+  }
+  .fa-user{
+    color: white;
+  }
+  i[data-set='90']{
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+    -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+  }
+  i[data-set="180"]{
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+    -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+  }
+  i[data-set="270"]{
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+    -webkit-transform: rotate(270deg);
+      transform: rotate(270deg);
+  }
+  .width{
+    width: 50%;
+  }

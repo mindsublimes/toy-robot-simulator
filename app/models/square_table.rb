@@ -1,0 +1,2 @@
+class SquareTable < ApplicationRecord
+end

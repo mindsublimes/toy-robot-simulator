@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="mx-auto width">
+    <button class="btn btn-primary left" disabled="true" id="left">Left</button>
+    <button class="btn btn-primary right" disabled="true" id="right">Right</button>
+    <button class="btn btn-secondary move" disabled="true" id="move">Move</button>
+    <button class="btn btn-info" disabled="true" id="info">Report</button>
+    <b><div id="error_message" class="error-message"></div></b>
+  </div>
+
+  <div class="table-width mt-5 mx-auto" >
+    <table class="table-width border-5">
+      <% 5.downto(0).each do |d| -%>
+        <tr>
+          <% 6.times do |e| -%>
+            <% dev = "location_#{e}_#{d}" %>
+            <th id="<%= dev %>" class="th-width text-center"></th>
+          <% end -%>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+  <%= form_for @robot_simulation, url: set_robot_robot_simulations_path, method: :get, remote: true  do |f| %>
+      <div class="mt-5 mx-auto width" >
+        <div>
+          <%= f.label :directions, class: " mt-3" -%>
+          <%= f.text_field :directions, value: "0,0", class: "form-control" -%>
+        </div>
+        <div>
+          <%= f.label :orientation, class: " mt-4" -%>
+          <%= f.select :orientation, options_for_select(['North', "East", "West", "South"]),{}, class: "form-control mt-3" -%>
+        </div>
+        <div>
+          <%= f.submit "Position", class: "btn btn-sm btn-outline-primary mt-3 mb-5" -%>
+        </div>
+      </div>
+  <% end -%>
+</div>
