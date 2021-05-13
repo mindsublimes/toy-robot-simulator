@@ -26,7 +26,7 @@ RSpec.describe RobotSimulationsController, type: :controller do
       expect(response).to have_http_status(200)
       expect(controller.view_assigns['data_set']).to be_eql(params[:data_set])
       axis = params[:token].split("_")
-      expect(controller.view_assigns['axis']).to be_eql([axis[1].to_i, axis[2].to_i - 1])
+      expect(controller.view_assigns['axis']).to be_eql([axis[1].to_i, axis[2].to_i + 1])
     end
 
     it "returns failure direction North West" do
@@ -44,7 +44,6 @@ RSpec.describe RobotSimulationsController, type: :controller do
       get :set_robot, params: params, xhr: true
       robot = controller.view_assigns['robot']
       expect(robot.id).to be_nil
-      expect(controller.view_assigns['axis']).to be_nil
       expect(robot.directions).to be_eql(params[:robot][:directions])
       expect(robot.orientation).to be_eql(params[:robot][:orientation])
     end
